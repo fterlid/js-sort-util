@@ -4,7 +4,7 @@
   "description": "Utility for sorting in JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/fterlid/js-sort-util/issues"
   },
-  "homepage": "https://github.com/fterlid/js-sort-util#readme"
+  "homepage": "https://github.com/fterlid/js-sort-util#readme",
+  "devDependencies": {
+    "jasmine": "^2.3.2"
+  }
 }
