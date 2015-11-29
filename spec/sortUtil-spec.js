@@ -11,4 +11,21 @@ describe('Sort utility tests', function(){
 		expect(sorted[2]).toBe('b');
 		expect(sorted[3]).toBe('c');
 	});
+	
+	it('does not change the order of the original array', function(){
+		let unsorted = ['b', 'a', 'c', 'ab'];
+		let sorted = SortUtil.sort(unsorted);
+		
+		expect(unsorted[0]).toBe('b');
+		expect(unsorted[1]).toBe('a');
+		expect(unsorted[2]).toBe('c');
+		expect(unsorted[3]).toBe('ab');
+	});
+	
+	it('returns a new array', function(){
+		let unsorted = ['b', 'a', 'c', 'ab'];
+		let sorted = SortUtil.sort(unsorted);
+		
+		expect(unsorted).not.toBe(sorted);
+	});
 });
