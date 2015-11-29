@@ -4,6 +4,7 @@
   "description": "Utility for sorting in JavaScript",
   "main": "dist/main.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "babel-node spec/run.js",
     "build": "browserify lib/index.js --transform [babelify] --outfile dist/main.js"
   },
