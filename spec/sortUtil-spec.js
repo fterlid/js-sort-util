@@ -1,28 +1,22 @@
 'use strict';
-
+import ArrayMatchers from './helpers/arrayMatchers';
 import SortUtil from '../lib/sortUtil';
 
 describe('Sort function', function(){
+    beforeEach(() => {
+        jasmine.addMatchers(ArrayMatchers);
+    });
+    
     it('sorts string array in ascending, alphabetical order', function(){
         let sorted = SortUtil.sort(['b', 'a', 'c', 'ab']);
         
-        expect(sorted[0]).toBe('a');
-        expect(sorted[1]).toBe('ab');
-        expect(sorted[2]).toBe('b');
-        expect(sorted[3]).toBe('c');
+        expect(sorted).toHaveSameOrderAs(['a', 'ab', 'b', 'c']);
     });
     
     it('sorts number array in ascending, numerical order', function(){
         let sorted = SortUtil.sort([Infinity, 3, 0, 0.5, -2, -Infinity, -3]);
-        console.log(sorted);
-        
-        expect(sorted[0]).toBe(-Infinity);
-        expect(sorted[1]).toBe(-3);
-        expect(sorted[2]).toBe(-2);
-        expect(sorted[3]).toBe(0);
-        expect(sorted[4]).toBe(0.5);
-        expect(sorted[5]).toBe(3);
-        expect(sorted[6]).toBe(Infinity);
+
+        expect(sorted).toHaveSameOrderAs([-Infinity, -3, -2, 0, 0.5, 3, Infinity]);
     });
     
     it('returns a new array', function(){
@@ -36,9 +30,6 @@ describe('Sort function', function(){
         let unsorted = ['b', 'a', 'c', 'ab'];
         SortUtil.sort(unsorted);
         
-        expect(unsorted[0]).toBe('b');
-        expect(unsorted[1]).toBe('a');
-        expect(unsorted[2]).toBe('c');
-        expect(unsorted[3]).toBe('ab');
+        expect(unsorted).toHaveSameOrderAs(['b', 'a', 'c', 'ab']);
     });
 });
