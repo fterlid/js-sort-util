@@ -42,5 +42,16 @@ describe('Sort function', function(){
         let sorted = SortUtil.sort(unsorted, 'prop');
         
         expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
-    } );
+    });
+    
+    it('can sort objects on a nested, named property', () => {
+        let obj1 = { prop: {nested: 1} };
+        let obj2 = { prop: {nested: 2} };
+        let obj3 = { prop: {nested: 3} };
+        let unsorted = [obj3, obj1, obj2];
+        
+        let sorted = SortUtil.sort(unsorted, 'prop.nested');
+        
+        expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
+    });
 });
