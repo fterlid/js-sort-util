@@ -32,4 +32,15 @@ describe('Sort function', function(){
         
         expect(unsorted).toHaveSameOrderAs(['b', 'a', 'c', 'ab']);
     });
+    
+    it('can sort objects on a named property', () => {
+        let obj1 = { prop: 1 };
+        let obj2 = { prop: 2 };
+        let obj3 = { prop: 3 };
+        let unsorted = [obj3, obj1, obj2];
+        
+        let sorted = SortUtil.sort(unsorted, 'prop');
+        
+        expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
+    } );
 });
