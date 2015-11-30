@@ -22,11 +22,9 @@ let arrayMatchers = {
             compare: function(actual, expected){
                 let result = {};
                 result.pass = hasSameOrder(actual, expected);
-                if (result.pass){
-                    result.message = `Expected [ ${actual.toString()} ] NOT to have same order as [ ${expected.toString()} ]`;
-                } else{
-                    result.message = `Expected [ ${actual.toString()} ] to have same order as [ ${expected.toString()} ]`;
-                }
+                result.message = `Expected ${JSON.stringify(actual)} ` +
+                    `${result.pass? 'NOT ' : ''}` + 
+                    `to have same order as ${JSON.stringify(expected)}`;
                 
                 return result;
             }
