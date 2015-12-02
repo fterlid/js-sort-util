@@ -71,4 +71,18 @@ describe('Sort function', function(){
         arg = 42;
         expect(callSort).toThrowError(expectedErrorText);
     });
+    
+    it('throws if propertyPath argument is provided and is not a string', () => {
+        let expectedErrorText = 'sort: argument "propertyPath" must be a string if provided';
+        let arg = [];
+        let callSort = () => SortUtil.sort([], arg);
+        
+        expect(callSort).toThrowError(expectedErrorText);
+        
+        arg = {};
+        expect(callSort).toThrowError(expectedErrorText);
+        
+        arg = 42;
+        expect(callSort).toThrowError(expectedErrorText);
+    });
 });
