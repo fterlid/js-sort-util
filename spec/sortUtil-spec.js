@@ -58,7 +58,7 @@ describe('Sort function', function(){
     it('throws if first argument is not an Array', () => {
         let expectedErrorText = 'sort: argument "arr" must be an Array';
         let arg = undefined;
-        let callSort = () => SortUtil.sort(arg) 
+        let callSort = () => SortUtil.sort(arg);
         
         expect(callSort).toThrowError(expectedErrorText);
         
