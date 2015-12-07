@@ -5,6 +5,7 @@
         "linebreak-style": [2, "windows"],
         "semi": [2, "always"],
         "no-var": 2,
+        "arrow-spacing": 2,
         "space-after-keywords": 2,
         "space-before-blocks": 2
     },
