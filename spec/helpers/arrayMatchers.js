@@ -7,7 +7,7 @@ function hasSameOrder(arrX, arrY){
         return false;
     }
     
-    for(let i = 0; i < arrX.length; i++){
+    for (let i = 0; i < arrX.length; i++){
         if (arrX[i] !== arrY[i]){
             return false;
         }
