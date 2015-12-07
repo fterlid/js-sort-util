@@ -1,14 +1,14 @@
 'use strict';
 
-function hasSameOrder(arrX, arrY){
+function hasSameOrder(arrX, arrY) {
     if (arrX instanceof Array === false 
         || arrY instanceof Array === false 
-        || arrX.length !== arrY.length){
+        || arrX.length !== arrY.length) {
         return false;
     }
     
-    for (let i = 0; i < arrX.length; i++){
-        if (arrX[i] !== arrY[i]){
+    for (let i = 0; i < arrX.length; i++) {
+        if (arrX[i] !== arrY[i]) {
             return false;
         }
     }
@@ -17,9 +17,9 @@ function hasSameOrder(arrX, arrY){
 }
 
 let arrayMatchers = {
-    toHaveSameOrderAs: function(){
+    toHaveSameOrderAs: function() {
         return {
-            compare: function(actual, expected){
+            compare: function(actual, expected) {
                 let result = {};
                 result.pass = hasSameOrder(actual, expected);
                 result.message = `Expected ${JSON.stringify(actual)} ` +
