@@ -2,6 +2,11 @@
 import Facade from '../lib/index';
 
 describe('Sort function', () => {
+    it('does not throw if arguments are valid', () => {
+        Facade.sort([]);
+        Facade.sort([], '');
+    });
+    
     it('throws if first argument is not an Array', () => {
         let expectedErrorText = 'sort: Expected an Array as first argument.';
         let arg = undefined;
