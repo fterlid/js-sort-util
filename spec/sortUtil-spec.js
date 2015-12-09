@@ -55,6 +55,17 @@ describe('Sort function', () => {
         expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
     });
     
+    it('performs a stable sort', () => {
+        let obj1 = { prop: 1 };
+        let obj2 = { prop: 42 };
+        let obj3 = { prop: 42 };
+        let unsorted = [obj3, obj1, obj2];
+        
+        let sorted = SortUtil.sort(unsorted, 'prop');
+        
+        expect(sorted).toHaveSameOrderAs([obj1, obj3, obj2]);
+    });
+    
     it('throws if first argument is not an Array', () => {
         let expectedErrorText = 'sort: argument "arr" must be an Array';
         let arg = undefined;
