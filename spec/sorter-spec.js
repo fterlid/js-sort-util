@@ -65,35 +65,4 @@ describe('Sort function', () => {
         
         expect(sorted).toHaveSameOrderAs([obj1, obj3, obj2]);
     });
-    
-    it('throws if first argument is not an Array', () => {
-        let expectedErrorText = 'sort: argument "arr" must be an Array';
-        let arg = undefined;
-        let callSort = () => SortUtil.sort(arg);
-        
-        expect(callSort).toThrowError(expectedErrorText);
-        
-        arg = null;
-        expect(callSort).toThrowError(expectedErrorText);
-        
-        arg = 'a string';
-        expect(callSort).toThrowError(expectedErrorText);
-        
-        arg = 42;
-        expect(callSort).toThrowError(expectedErrorText);
-    });
-    
-    it('throws if propertyPath argument is provided and is not a string', () => {
-        let expectedErrorText = 'sort: argument "propertyPath" must be a string if provided';
-        let arg = [];
-        let callSort = () => SortUtil.sort([], arg);
-        
-        expect(callSort).toThrowError(expectedErrorText);
-        
-        arg = {};
-        expect(callSort).toThrowError(expectedErrorText);
-        
-        arg = 42;
-        expect(callSort).toThrowError(expectedErrorText);
-    });
 });
