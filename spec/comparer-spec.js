@@ -1,28 +1,28 @@
 'use strict';
 import Comparer from '../lib/comparer';
 
-describe('stableCompare function', () => {
+describe('compare function', () => {
     
     it('compares letter strings in ascending, alphabetical order', () => {
-        expect(Comparer.stableCompare({key: 'a', index: 2}, {key: 'b', index: 1})).toBeLessThan(0);
-        expect(Comparer.stableCompare({key: 'd', index: 2}, {key: 'c', index: 3})).toBeGreaterThan(0);
+        expect(Comparer.compare({key: 'a', index: 2}, {key: 'b', index: 1})).toBeLessThan(0);
+        expect(Comparer.compare({key: 'd', index: 2}, {key: 'c', index: 3})).toBeGreaterThan(0);
     });
     
     it('compares equal letter strings according to index in ascending order', () => {
-        expect(Comparer.stableCompare({key: 'a', index: 1}, {key: 'a', index: 2})).toBeLessThan(0);
-        expect(Comparer.stableCompare({key: 'a', index: 4}, {key: 'a', index: 3})).toBeGreaterThan(0);
-        expect(Comparer.stableCompare({key: 'a', index: 2}, {key: 'a', index: 2})).toBe(0);
+        expect(Comparer.compare({key: 'a', index: 1}, {key: 'a', index: 2})).toBeLessThan(0);
+        expect(Comparer.compare({key: 'a', index: 4}, {key: 'a', index: 3})).toBeGreaterThan(0);
+        expect(Comparer.compare({key: 'a', index: 2}, {key: 'a', index: 2})).toBe(0);
     });
     
     it('compares numbers in ascending, numerical order', () => {
-        expect(Comparer.stableCompare({key: 1, index: 2}, {key: 3, index: 1})).toBeLessThan(0);
-        expect(Comparer.stableCompare({key: 5, index: 2}, {key: 4, index: 3})).toBeGreaterThan(0);
-        expect(Comparer.stableCompare({key: 42, index: 2}, {key: 42, index: 2})).toBe(0);
+        expect(Comparer.compare({key: 1, index: 2}, {key: 3, index: 1})).toBeLessThan(0);
+        expect(Comparer.compare({key: 5, index: 2}, {key: 4, index: 3})).toBeGreaterThan(0);
+        expect(Comparer.compare({key: 42, index: 2}, {key: 42, index: 2})).toBe(0);
     });
     
     it('compares equal numbers according to index in ascending order', () => {
-        expect(Comparer.stableCompare({key: 42, index: 1}, {key: 42, index: 2})).toBeLessThan(0);
-        expect(Comparer.stableCompare({key: 42, index: 4}, {key: 42, index: 3})).toBeGreaterThan(0);
-        expect(Comparer.stableCompare({key: 42, index: 2}, {key: 42, index: 2})).toBe(0);
+        expect(Comparer.compare({key: 42, index: 1}, {key: 42, index: 2})).toBeLessThan(0);
+        expect(Comparer.compare({key: 42, index: 4}, {key: 42, index: 3})).toBeGreaterThan(0);
+        expect(Comparer.compare({key: 42, index: 2}, {key: 42, index: 2})).toBe(0);
     });
 });
