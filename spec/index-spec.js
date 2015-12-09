@@ -1,10 +1,17 @@
 'use strict';
 import Facade from '../lib/index';
+import Sorter from '../lib/sorter';
 
 describe('Sort function', () => {
-    it('does not throw if arguments are valid', () => {
-        Facade.sort([]);
-        Facade.sort([], '');
+    it('behaves as expected when called with valid arguments', () => {
+        let expected = ['expected', 'return', 'value'];
+        spyOn(Sorter, 'sort').and.returnValue(expected);
+        
+        let actual1 = Facade.sort([]);
+        let actual2 = Facade.sort([], '');
+        
+        expect(actual1).toBe(expected);
+        expect(actual2).toBe(expected);
     });
     
     it('throws if first argument is not an Array', () => {
