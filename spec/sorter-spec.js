@@ -1,6 +1,6 @@
 'use strict';
 import ArrayMatchers from './helpers/arrayMatchers';
-import SortUtil from '../lib/sortUtil';
+import SortUtil from '../lib/sorter';
 
 describe('Sort function', () => {
     beforeEach(() => {
