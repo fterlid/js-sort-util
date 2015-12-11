@@ -55,6 +55,12 @@ describe('Sort function', () => {
         expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
     });
     
+    it('can run on an array of mixed types without failing miserably', () => {
+        let unsorted = [1, 'a', null, undefined, NaN, Infinity, {}, [], function () { }];
+
+        expect(() => SortUtil.sort(unsorted)).not.toThrowError();
+    });
+    
     it('performs a stable sort', () => {
         let obj1 = { prop: 1 };
         let obj2 = { prop: 42 };
