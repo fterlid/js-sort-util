@@ -1,6 +1,6 @@
 'use strict';
 import ArrayMatchers from './helpers/arrayMatchers';
-import SortUtil from '../lib/sorter';
+import Sorter from '../lib/sorter';
 
 describe('Sort function', () => {
     beforeEach(() => {
@@ -8,27 +8,27 @@ describe('Sort function', () => {
     });
     
     it('sorts string array in ascending, alphabetical order', () => {
-        let sorted = SortUtil.sort(['b', 'a', 'c', 'ab']);
+        let sorted = Sorter.sort(['b', 'a', 'c', 'ab']);
         
         expect(sorted).toHaveSameOrderAs(['a', 'ab', 'b', 'c']);
     });
     
     it('sorts number array in ascending, numerical order', () => {
-        let sorted = SortUtil.sort([Infinity, 3, 0, 0.5, -2, -Infinity, -3]);
+        let sorted = Sorter.sort([Infinity, 3, 0, 0.5, -2, -Infinity, -3]);
 
         expect(sorted).toHaveSameOrderAs([-Infinity, -3, -2, 0, 0.5, 3, Infinity]);
     });
     
     it('returns a new array', () => {
         let unsorted = ['b', 'a', 'c', 'ab'];
-        let sorted = SortUtil.sort(unsorted);
+        let sorted = Sorter.sort(unsorted);
         
         expect(unsorted).not.toBe(sorted);
     });
 	
     it('does not change the order of the original array', () => {
         let unsorted = ['b', 'a', 'c', 'ab'];
-        SortUtil.sort(unsorted);
+        Sorter.sort(unsorted);
         
         expect(unsorted).toHaveSameOrderAs(['b', 'a', 'c', 'ab']);
     });
@@ -39,7 +39,7 @@ describe('Sort function', () => {
         let obj3 = { prop: 3 };
         let unsorted = [obj3, obj1, obj2];
         
-        let sorted = SortUtil.sort(unsorted, 'prop');
+        let sorted = Sorter.sort(unsorted, 'prop');
         
         expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
     });
@@ -50,7 +50,7 @@ describe('Sort function', () => {
         let obj3 = { prop: {nested: 3} };
         let unsorted = [obj3, obj1, obj2];
         
-        let sorted = SortUtil.sort(unsorted, 'prop.nested');
+        let sorted = Sorter.sort(unsorted, 'prop.nested');
         
         expect(sorted).toHaveSameOrderAs([obj1, obj2, obj3]);
     });
@@ -58,7 +58,7 @@ describe('Sort function', () => {
     it('can run on an array of mixed types without failing miserably', () => {
         let unsorted = [1, 'a', null, undefined, NaN, Infinity, {}, [], function () { }];
 
-        expect(() => SortUtil.sort(unsorted)).not.toThrowError();
+        expect(() => Sorter.sort(unsorted)).not.toThrowError();
     });
     
     it('performs a stable sort', () => {
@@ -67,7 +67,7 @@ describe('Sort function', () => {
         let obj3 = { prop: 42 };
         let unsorted = [obj3, obj1, obj2];
         
-        let sorted = SortUtil.sort(unsorted, 'prop');
+        let sorted = Sorter.sort(unsorted, 'prop');
         
         expect(sorted).toHaveSameOrderAs([obj1, obj3, obj2]);
     });
